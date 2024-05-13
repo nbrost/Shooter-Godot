@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://bcb1kojey03uv"]
+[gd_scene load_steps=3 format=3 uid="uid://bcb1kojey03uv"]
+
+[ext_resource type="Texture2D" uid="uid://cx7yppa1c2nda" path="res://icon.svg" id="1_sk5xc"]
+[ext_resource type="Script" path="res://scenes/Logo.gd" id="2_0arwb"]
 
 [node name="Level" type="Node2D"]
+
+[node name="Logo" type="Sprite2D" parent="."]
+texture = ExtResource("1_sk5xc")
+script = ExtResource("2_0arwb")
