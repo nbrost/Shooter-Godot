@@ -3,18 +3,24 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Logo.rotation_degrees=90
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	$Logo.position.x +=100 * delta
+func _process(_delta):
+	pass
+
+
+
+
+func _on_gate_player_entered_gate(_body):
+	print("player entered gate")
 	
-	$Logo.rotation_degrees += 500 * delta
-	if $Logo.position.x > 1000:
-		$Logo.position.x = 0
-	Input
 
 
-func RotatePlayer(amount):
-	$Player.rotation_degrees += amount
+func _on_player_grenade():
+	print("grenades yo")
+
+
+func _on_player_laser():
+	print("laser yo")

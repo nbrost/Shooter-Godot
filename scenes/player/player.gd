@@ -1,6 +1,13 @@
-extends Node2D
+extends CharacterBody2D
 
 var pos: Vector2 = Vector2.ZERO
+var can_laser: bool = true
+var can_grenade: bool = true
+var laser_ammo: int = 10
+var grenade_ammo: int = 3
+
+signal laser
+signal grenade
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,18 +15,30 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var direction = Input.get_vector("left", "right","up","down")
-	position = position + direction * delta * 500
+	velocity = direction * 500
+	move_and_slide()
 	
-	if Input.is_action_pressed("primary action"):
-		print("shootin")
-	
-	if Input.is_action_pressed("secondary action"):
-		print("grenade out")
-	if Input.is_action_pressed("left"):
-		var rot = delta * 5
-		$"..".RotatePlayer(rot)
-	if Input.is_action_pressed("right"):
-		var rot = delta * -5
-		$"..".RotatePlayer(rot)
+	if Input.is_action_just_pressed("primary action") and can_laser and laser_ammo > 0:
+		print('shoot laser')
+		laser.emit()
+		laser_ammo += -1
+		can_laser = false
+		$LaserTimer.start()
+		
+	if Input.is_action_just_pressed("secondary action") and can_grenade and grenade_ammo > 0:
+		print('throw grenade')
+		grenade_ammo += -1
+		grenade.emit()
+		can_grenade = false
+		$GrenadeTimer.start()
+		
+
+
+func _on_timer_timeout():
+	can_laser = true
+
+
+func _on_grenade_timer_timeout():
+	can_grenade = true
