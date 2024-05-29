@@ -6,8 +6,8 @@ var can_grenade: bool = true
 var laser_ammo: int = 10
 var grenade_ammo: int = 3
 
-signal laser(pos)
-signal grenade
+signal laser(posi)
+signal grenade(posi)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,19 +21,18 @@ func _process(_delta):
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("primary action") and can_laser and laser_ammo > 0:
-		var possible_lasers = $LaserStartPosititions.get_children()
+		var possible_lasers = $LaserStartPositions.get_children()
 		var selected_laser = possible_lasers[randi() % possible_lasers.size()]
-		print('shoot laser')
-		print(selected_laser)
-		laser.emit($".".global_position + selected_laser.position)
+		laser.emit(selected_laser.global_position)
 		laser_ammo += -1
 		can_laser = false
 		$LaserTimer.start()
 		
 	if Input.is_action_just_pressed("secondary action") and can_grenade and grenade_ammo > 0:
-		print('throw grenade')
+		var possible_grenades = $LaserStartPositions.get_children()
+		var selected_grenade = possible_grenades[randi() % possible_grenades.size()]
 		grenade_ammo += -1
-		grenade.emit()
+		grenade.emit(selected_grenade.global_position)
 		can_grenade = false
 		$GrenadeTimer.start()
 		

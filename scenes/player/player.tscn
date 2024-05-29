@@ -14,7 +14,6 @@ position = Vector2(-1, -39)
 texture = ExtResource("1_iokix")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -3)
 shape = SubResource("CircleShape2D_3ujm8")
 
 [node name="LaserTimer" type="Timer" parent="."]
@@ -25,15 +24,18 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
-[node name="LaserStartPosititions" type="Node" parent="."]
+[node name="LaserStartPositions" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="LaserStartPosititions"]
+[node name="Marker2D_num1" type="Marker2D" parent="LaserStartPositions"]
 position = Vector2(18, -133)
 
-[node name="Marker2D2" type="Marker2D" parent="LaserStartPosititions"]
+[node name="Marker2D_num2" type="Marker2D" parent="LaserStartPositions"]
 position = Vector2(26, -131)
 
-[node name="Marker2D3" type="Marker2D" parent="LaserStartPosititions"]
+[node name="Marker2D_num4" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(18, -133)
+
+[node name="Marker2D_num3" type="Marker2D" parent="LaserStartPositions"]
 position = Vector2(10, -131)
 
 [connection signal="timeout" from="LaserTimer" to="." method="_on_timer_timeout"]

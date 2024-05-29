@@ -1,6 +1,7 @@
 extends Node2D
 
-var laser_scene: PackedScene = preload("res://scenes/objects/laser.tscn")
+var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
+var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -18,14 +19,15 @@ func _on_gate_player_entered_gate(_body):
 	
 
 
-func _on_player_grenade():
-	
-	print("grenades yo")
+func _on_player_grenade(pos):
+	var grenade = grenade_scene.instantiate()
+	grenade.position = pos
+	grenade.z_index = $Player.z_index -1
+	$Projectiles.add_child(grenade)
 
 
 func _on_player_laser(pos):
 	var laser = laser_scene.instantiate()
 	laser.position = pos
-	print(pos)
-	add_child(laser)
-	print("laser yo")
+	laser.z_index = $Player.z_index -1
+	$Projectiles.add_child(laser)
