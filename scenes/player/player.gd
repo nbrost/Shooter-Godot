@@ -31,6 +31,7 @@ func _process(_delta):
 		laser_ammo += -1
 		laser.emit(barrel_position, player_direction)
 		can_laser = false
+		print("we be laszing")
 		$LaserTimer.start()
 		
 	if Input.is_action_just_pressed("secondary action") and can_grenade and grenade_ammo > 0:		

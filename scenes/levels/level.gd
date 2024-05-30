@@ -23,7 +23,7 @@ func _on_player_grenade(pos, direction):
 	var grenade = grenade_scene.instantiate() as RigidBody2D
 	grenade.position = pos
 	grenade.linear_velocity = direction * grenade.speed
-	grenade.z_index = $Player.z_index -1
+	grenade.z_index = $Ground.z_index + 1
 	$Projectiles.add_child(grenade)
 
 
@@ -32,5 +32,5 @@ func _on_player_laser(pos, direction):
 	laser.direction = direction
 	laser.look_at(direction)
 	laser.position = pos
-	laser.z_index = $Player.z_index -1
+	laser.z_index = $Ground.z_index + 1
 	$Projectiles.add_child(laser)
