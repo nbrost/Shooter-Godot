@@ -30,6 +30,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("primary action") and can_laser and laser_ammo > 0:
 		laser_ammo += -1
 		laser.emit(barrel_position, player_direction)
+		$GPUParticles2D.emitting = true
 		can_laser = false
 		print("we be laszing")
 		$LaserTimer.start()

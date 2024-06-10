@@ -32,5 +32,4 @@ func _on_player_laser(pos, direction):
 	laser.direction = direction
 	laser.look_at(direction)
 	laser.position = pos
-	laser.z_index = $Ground.z_index + 1
 	$Projectiles.add_child(laser)
