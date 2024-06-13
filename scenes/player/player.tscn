@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bchv5dvig04gm"]
+[gd_scene load_steps=9 format=3 uid="uid://bchv5dvig04gm"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_fvffr"]
 [ext_resource type="Texture2D" uid="uid://bgjlr2dbq13fh" path="res://graphics/player/player.png" id="1_iokix"]
@@ -27,6 +27,9 @@ color_ramp = SubResource("GradientTexture1D_lbmil")
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ujm8"]
 radius = 63.0079
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rxoh6"]
+polygon = PackedVector2Array(23, -64, 13, -61, -1, -62, -11, -58, -15, -61, -24, -56, -26, -50, -38, -50, -48, -44, -53, -34, -59, -24, -59, -10, -58, 3, -54, 10, -50, 11, -49, 13, -51, 17, -48, 25, -42, 29, -38, 38, -36, 42, -34, 50, -25, 55, -17, 57, -8, 57, 6, 54, 25, 44, 41, 39, 44, 36, 50, 37, 63, 38, 59, 42, 62, 49, 95, 49, 97, 47, 97, 40, 102, 40, 109, 32, 115, 34, 122, 34, 123, 32, 122, 29, 124, 28, 127, 30, 132, 28, 133, 24, 135, 14, 134, 8, 130, 3, 125, 5, 122, 4, 125, 2, 125, -1, 115, -2, 109, -7, 99, -8, 90, -14, 80, -14, 72, -20, 64, -28, 54, -32, 50, -33, 45, -41, 45, -44, 37, -51, 34, -58, 28, -62)
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 31
 script = ExtResource("1_fvffr")
@@ -40,14 +43,14 @@ texture = ExtResource("2_r21g0")
 lifetime = 0.2
 one_shot = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_3ujm8")
+
 [node name="PlayerImage" type="Sprite2D" parent="."]
 position = Vector2(38, -3)
 rotation = 1.5708
 texture = ExtResource("1_iokix")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
-shape = SubResource("CircleShape2D_3ujm8")
 
 [node name="LaserTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -67,6 +70,9 @@ position = Vector2(129, 28)
 
 [node name="Marker2D_num3" type="Marker2D" parent="LaserStartPositions"]
 position = Vector2(134, 17)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_rxoh6")
 
 [connection signal="timeout" from="LaserTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="GrenadeTimer" to="." method="_on_grenade_timer_timeout"]
