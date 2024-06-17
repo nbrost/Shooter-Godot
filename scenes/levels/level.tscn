@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bcb1kojey03uv"]
+[gd_scene load_steps=19 format=3 uid="uid://bcb1kojey03uv"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_ukcxp"]
 [ext_resource type="Texture2D" uid="uid://doqonigfxshda" path="res://graphics/ground/stones.png" id="2_ek8lt"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cbyn4f1l75d5e" path="res://graphics/tilesets/outside_walls.png" id="8_ui6xq"]
 [ext_resource type="Texture2D" uid="uid://c4q5l7a8a5lu8" path="res://graphics/tilesets/soil.png" id="9_a8chg"]
 [ext_resource type="PackedScene" uid="uid://nfas1b7d3ile" path="res://houses/house.tscn" id="10_m4xy3"]
+[ext_resource type="PackedScene" uid="uid://dytoyjcm5endy" path="res://scenes/objects/light_fan_animation.tscn" id="11_ah73w"]
 [ext_resource type="PackedScene" uid="uid://bgyijtgj7xsb2" path="res://scenes/objects/wall_lamp.tscn" id="12_reqa4"]
 [ext_resource type="PackedScene" uid="uid://xmi0lmfp0m4w" path="res://scenes/objects/steam_vent.tscn" id="13_4urjw"]
 
@@ -138,21 +139,23 @@ format = 2
 layer_0/name = "Soil"
 layer_0/tile_data = PackedInt32Array(-4, 65537, 0, -5, 1, 0, 65531, 1, 1, 131067, 1, 2, 196603, 0, 2, 262139, 0, 2, 327675, 65536, 2, 327676, 65536, 0, 327677, 65536, 0, 327678, 65536, 0, 327679, 65536, 0, 262144, 65536, 0, 262145, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 262150, 131072, 2, 196614, 0, 2, 131078, 0, 2, 65542, 0, 2, 6, 0, 2, -65530, 131072, 1, -65531, 0, 0, 65532, 65537, 1, 65533, 65537, 1, -3, 65537, 1, -65539, 65537, 1, -65538, 65537, 1, -2, 65537, 1, 65534, 65537, 1, 65535, 131073, 1, -1, 65537, 1, -65537, 65537, 1, 131071, 131073, 2, 131070, 65537, 2, 131069, 65537, 2, 131068, 65537, 2)
 layer_1/name = "Walls"
-layer_1/enabled = true
-layer_1/modulate = Color(1, 1, 1, 1)
-layer_1/y_sort_enabled = false
-layer_1/y_sort_origin = 0
-layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(-4, 65536, 0, -5, 65536, 1, 65531, 0, 2, 131067, 0, 2, 196603, 0, 2, 262139, 0, 2, 327675, 65536, 2, 262150, 131072, 2, -65530, 131072, 1, -65531, 0, 0, 327676, 65536, 0, 327677, 65536, 0, 327678, 65536, 0, 327679, 65536, 0, 262144, 65536, 0, 262145, 65536, 0, 262146, 65536, 0, 262147, 65536, 0, 262148, 65536, 0, 262149, 65536, 0, 196614, 0, 2, 131078, 0, 2, 65542, 0, 2, 6, 0, 2, -65539, 65537, 0, -3, 65537, 1, 65532, 65537, 1, 65533, 65537, 1, 65534, 65537, 1, 65535, 131073, 1, 131071, 131073, 2, 131070, 65537, 2, 131069, 65537, 2, 131068, 65537, 2)
 
 [node name="House" parent="Ground/TileMap" instance=ExtResource("10_m4xy3")]
 position = Vector2(-3862, 4348)
 rotation = -1.91463
 
+[node name="LightFanAnimation" parent="." instance=ExtResource("11_ah73w")]
+position = Vector2(-3236, 2117)
+autoplay = "default"
+frame_progress = 0.347933
+
 [node name="Gate" parent="." instance=ExtResource("2_oq135")]
 position = Vector2(546, -540)
+metadata/_edit_lock_ = true
 
 [node name="Projectiles" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("4_xr61v")]
 position = Vector2(154, 479)

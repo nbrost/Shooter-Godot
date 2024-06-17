@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cahs5qydsensw"]
+[gd_scene load_steps=6 format=3 uid="uid://cahs5qydsensw"]
 
 [ext_resource type="Texture2D" uid="uid://b78nl6mt5yd3c" path="res://graphics/projectiles/grenade.png" id="1_aulc0"]
-[ext_resource type="Script" path="res://scenes/projectiles/grenade.gd" id="1_qn0yh"]
+[ext_resource type="Script" path="res://scenes/projectiles/grenade.gd" id="1_tgb2i"]
+[ext_resource type="Texture2D" uid="uid://ucu1oo1ltwbr" path="res://graphics/explosions/explosion_2.png" id="3_2bthr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7pvr7"]
 friction = 10.0
@@ -18,7 +19,7 @@ physics_material_override = SubResource("PhysicsMaterial_7pvr7")
 gravity_scale = 0.0
 linear_damp = 1.0
 angular_damp = 0.4
-script = ExtResource("1_qn0yh")
+script = ExtResource("1_tgb2i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
@@ -26,3 +27,8 @@ texture = ExtResource("1_aulc0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_y5v3b")
+
+[node name="Explosion2" type="Sprite2D" parent="."]
+texture = ExtResource("3_2bthr")
+hframes = 8
+vframes = 8
