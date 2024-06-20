@@ -33,3 +33,13 @@ func _on_player_laser(pos, direction):
 	laser.look_at(direction)
 	laser.position = pos
 	$Projectiles.add_child(laser)
+
+
+func _on_house_player_entered():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Player/Camera2D, "zoom", Vector2(1,1), 2)
+
+
+func _on_house_player_exited():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.6,0.6), 2)
