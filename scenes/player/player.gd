@@ -6,6 +6,9 @@ var can_grenade: bool = true
 var laser_ammo: int = 50
 var grenade_ammo: int = 15
 
+@export var max_speed: int = 500
+var speed: int = max_speed
+
 signal laser(posi,direction)
 signal grenade(posi, direction)
 
@@ -21,7 +24,7 @@ func _process(_delta):
 	var player_direction = (get_global_mouse_position() - position).normalized()
 	var barrel_position = get_barrel_position()
 	var direction = Input.get_vector("left", "right","up","down")
-	velocity = direction * 500
+	velocity = direction * speed
 	move_and_slide()
 	
 	# Rotate

@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcb1kojey03uv"]
+[gd_scene load_steps=20 format=3 uid="uid://bcb1kojey03uv"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_ukcxp"]
 [ext_resource type="Texture2D" uid="uid://doqonigfxshda" path="res://graphics/ground/stones.png" id="2_ek8lt"]
 [ext_resource type="PackedScene" uid="uid://carayvfcsl3ey" path="res://scenes/objects/gate.tscn" id="2_oq135"]
+[ext_resource type="PackedScene" uid="uid://xl5rh24r1xgw" path="res://scenes/enemies/drone.tscn" id="3_j5f4l"]
 [ext_resource type="Texture2D" uid="uid://cf64sq650och4" path="res://graphics/decals/dirt_patch.png" id="3_tym88"]
 [ext_resource type="Texture2D" uid="uid://r4tquvrbv1qe" path="res://graphics/decals/moss/moss_1.png" id="4_u6ofl"]
 [ext_resource type="PackedScene" uid="uid://bchv5dvig04gm" path="res://scenes/player/player.tscn" id="4_xr61v"]
@@ -111,6 +112,9 @@ position = Vector2(397, 470)
 texture = ExtResource("2_ek8lt")
 region_enabled = true
 region_rect = Rect2(-10621.7, -4695.26, 16000, 10000)
+
+[node name="drone" parent="Ground/Soil" instance=ExtResource("3_j5f4l")]
+position = Vector2(-466, 514)
 
 [node name="Decoration" type="Sprite2D" parent="Ground"]
 modulate = Color(0.913725, 0.85098, 0.643137, 1)
