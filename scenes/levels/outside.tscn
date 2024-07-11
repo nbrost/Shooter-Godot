@@ -132,7 +132,7 @@ texture = ExtResource("6_ttwvm")
 position = Vector2(841, 576)
 texture = ExtResource("7_nkgm6")
 
-[node name="TileMap" type="TileMap" parent="Ground" index="6"]
+[node name="TileMap2" type="TileMap" parent="Ground" index="6"]
 position = Vector2(-4, 56)
 tile_set = SubResource("TileSet_xuos3")
 format = 2
