@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://5rkojxeauqd"]
+[gd_scene load_steps=20 format=3 uid="uid://5rkojxeauqd"]
 
 [ext_resource type="PackedScene" uid="uid://bcb1kojey03uv" path="res://scenes/levels/level.tscn" id="1_vlxgu"]
 [ext_resource type="Texture2D" uid="uid://doqonigfxshda" path="res://graphics/ground/stones.png" id="2_3cllp"]
@@ -15,8 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dytoyjcm5endy" path="res://scenes/objects/light_fan_animation.tscn" id="11_a35os"]
 [ext_resource type="PackedScene" uid="uid://xmi0lmfp0m4w" path="res://scenes/objects/steam_vent.tscn" id="13_17gjm"]
 [ext_resource type="PackedScene" uid="uid://bgyijtgj7xsb2" path="res://scenes/objects/wall_lamp.tscn" id="14_01b3g"]
-[ext_resource type="PackedScene" uid="uid://bgx65hd5uyyxw" path="res://scenes/Container/crate.tscn" id="16_p7l3y"]
-[ext_resource type="PackedScene" uid="uid://cnhfmeotgyen2" path="res://scenes/Container/toilet.tscn" id="17_jgy3x"]
+[ext_resource type="PackedScene" uid="uid://pmklwbw6iuxg" path="res://scenes/UI/UI.tscn" id="16_da1s5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_55w4i"]
 resource_name = "walls"
@@ -165,10 +164,6 @@ position = Vector2(-366, 479)
 position = Vector2(-110, 4880)
 rotation = 2.79253
 
-[node name="Crate" parent="." index="6" instance=ExtResource("16_p7l3y")]
-position = Vector2(1200, 1828)
-
-[node name="Toilet" parent="." index="7" instance=ExtResource("17_jgy3x")]
-position = Vector2(-604, 1672)
+[node name="UI" parent="." index="7" instance=ExtResource("16_da1s5")]
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
