@@ -3,8 +3,6 @@ extends CharacterBody2D
 var pos: Vector2 = Vector2.ZERO
 var can_laser: bool = true
 var can_grenade: bool = true
-var laser_ammo: int = 50
-var grenade_ammo: int = 15
 
 @export var max_speed: int = 500
 var speed: int = max_speed
@@ -30,16 +28,16 @@ func _process(_delta):
 	# Rotate
 	look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("primary action") and can_laser and laser_ammo > 0:
-		laser_ammo += -1
+	if Input.is_action_just_pressed("primary action") and can_laser and Globals.laser_amount > 0:
+		Globals.laser_amount += -1
 		laser.emit(barrel_position, player_direction)
 		$GPUParticles2D.emitting = true
 		can_laser = false
 		print("we be laszing")
 		$LaserTimer.start()
 		
-	if Input.is_action_just_pressed("secondary action") and can_grenade and grenade_ammo > 0:		
-		grenade_ammo += -1
+	if Input.is_action_just_pressed("secondary action") and can_grenade and Globals.grenade_amount > 0:		
+		Globals.grenade_amount += -1
 		grenade.emit(barrel_position, player_direction)
 		can_grenade = false
 		$GrenadeTimer.start()

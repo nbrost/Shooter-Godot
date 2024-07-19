@@ -20,6 +20,7 @@ func _on_player_grenade(pos, direction):
 	grenade.linear_velocity = direction * grenade.speed
 	grenade.z_index = $Ground.z_index + 1
 	$Projectiles.add_child(grenade)
+	$UI.update_grenade_text()
 
 
 func _on_player_laser(pos, direction):
@@ -28,6 +29,7 @@ func _on_player_laser(pos, direction):
 	laser.look_at(direction)
 	laser.position = pos
 	$Projectiles.add_child(laser)
+	$UI.update_laser_text()
 
 
 func _on_house_player_entered():

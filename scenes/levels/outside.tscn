@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://5rkojxeauqd"]
+[gd_scene load_steps=19 format=3 uid="uid://5rkojxeauqd"]
 
 [ext_resource type="PackedScene" uid="uid://bcb1kojey03uv" path="res://scenes/levels/level.tscn" id="1_vlxgu"]
 [ext_resource type="Texture2D" uid="uid://doqonigfxshda" path="res://graphics/ground/stones.png" id="2_3cllp"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dytoyjcm5endy" path="res://scenes/objects/light_fan_animation.tscn" id="11_a35os"]
 [ext_resource type="PackedScene" uid="uid://xmi0lmfp0m4w" path="res://scenes/objects/steam_vent.tscn" id="13_17gjm"]
 [ext_resource type="PackedScene" uid="uid://bgyijtgj7xsb2" path="res://scenes/objects/wall_lamp.tscn" id="14_01b3g"]
-[ext_resource type="PackedScene" uid="uid://pmklwbw6iuxg" path="res://scenes/UI/UI.tscn" id="16_da1s5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_55w4i"]
 resource_name = "walls"
@@ -163,7 +162,5 @@ position = Vector2(-366, 479)
 [node name="WallLamp" parent="." index="5" instance=ExtResource("14_01b3g")]
 position = Vector2(-110, 4880)
 rotation = 2.79253
-
-[node name="UI" parent="." index="7" instance=ExtResource("16_da1s5")]
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
