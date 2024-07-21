@@ -43,8 +43,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="HBoxContainer/GrenadeContainer"]
 layout_mode = 2
 theme = ExtResource("1_q0l87")
-text = "5
-"
+text = "5"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/GrenadeContainer"]
