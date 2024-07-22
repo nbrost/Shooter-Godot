@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5rkojxeauqd"]
+[gd_scene load_steps=20 format=3 uid="uid://5rkojxeauqd"]
 
 [ext_resource type="PackedScene" uid="uid://bcb1kojey03uv" path="res://scenes/levels/level.tscn" id="1_vlxgu"]
 [ext_resource type="Texture2D" uid="uid://doqonigfxshda" path="res://graphics/ground/stones.png" id="2_3cllp"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dytoyjcm5endy" path="res://scenes/objects/light_fan_animation.tscn" id="11_a35os"]
 [ext_resource type="PackedScene" uid="uid://xmi0lmfp0m4w" path="res://scenes/objects/steam_vent.tscn" id="13_17gjm"]
 [ext_resource type="PackedScene" uid="uid://bgyijtgj7xsb2" path="res://scenes/objects/wall_lamp.tscn" id="14_01b3g"]
+[ext_resource type="PackedScene" uid="uid://h48ogh7fukwc" path="res://items/item.tscn" id="14_bhiw6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_55w4i"]
 resource_name = "walls"
@@ -156,11 +157,29 @@ frame_progress = 0.347933
 [node name="Gate" parent="." index="1" instance=ExtResource("2_p11dy")]
 position = Vector2(383, -486)
 
-[node name="SteamVent" parent="." index="4" instance=ExtResource("13_17gjm")]
+[node name="Item" parent="." index="3" instance=ExtResource("14_bhiw6")]
+position = Vector2(-45, 1018)
+
+[node name="Item2" parent="." index="4" instance=ExtResource("14_bhiw6")]
+position = Vector2(187, 1049)
+
+[node name="Item3" parent="." index="5" instance=ExtResource("14_bhiw6")]
+position = Vector2(419, 1035)
+
+[node name="Item4" parent="." index="6" instance=ExtResource("14_bhiw6")]
+position = Vector2(687, 1049)
+
+[node name="Item5" parent="." index="7" instance=ExtResource("14_bhiw6")]
+position = Vector2(1114, 973)
+
+[node name="SteamVent" parent="." index="9" instance=ExtResource("13_17gjm")]
 position = Vector2(-366, 479)
 
-[node name="WallLamp" parent="." index="5" instance=ExtResource("14_01b3g")]
+[node name="WallLamp" parent="." index="10" instance=ExtResource("14_01b3g")]
 position = Vector2(-110, 4880)
 rotation = 2.79253
+
+[node name="Lights" parent="." index="11"]
+metadata/_edit_lock_ = true
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
