@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://v5bwcdxnsejr"]
+[gd_scene load_steps=9 format=3 uid="uid://v5bwcdxnsejr"]
 
 [ext_resource type="PackedScene" uid="uid://bcb1kojey03uv" path="res://scenes/levels/level.tscn" id="1_q3l71"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_p6wbj"]
 [ext_resource type="PackedScene" uid="uid://5rkojxeauqd" path="res://scenes/levels/outside.tscn" id="3_hpfsa"]
 [ext_resource type="Texture2D" uid="uid://defqyfahr1rr6" path="res://graphics/ground/dirt.png" id="3_y68mt"]
 [ext_resource type="PackedScene" uid="uid://bgyijtgj7xsb2" path="res://scenes/objects/wall_lamp.tscn" id="4_md25j"]
-[ext_resource type="PackedScene" uid="uid://h48ogh7fukwc" path="res://items/item.tscn" id="4_rvx6q"]
 [ext_resource type="PackedScene" uid="uid://cfdg7c6ri0wfc" path="res://scenes/objects/simple_light.tscn" id="5_bydmr"]
 [ext_resource type="Texture2D" uid="uid://cnseuextm3s08" path="res://graphics/lights/textures/circle.png" id="6_rdk75"]
 
@@ -45,9 +44,6 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(262154, 393216, 7, 262151, 0, 6, 262150, 131072, 7, 327686, 65536, 6, 393222, 327680, 8, 262149, 0, 6, 262148, 0, 6, 262146, 0, 6, 262145, 0, 7, 327681, 65536, 6, 393217, 327680, 8, 458753, 393216, 7, 458752, 0, 6, 524287, 262144, 7, 524285, 393216, 7, 524284, 131072, 7, 524283, 0, 6, 524280, 0, 6, 524279, 0, 6, 524278, 262144, 7, 589820, 65536, 6, 655356, 65536, 6, 720892, 65536, 6, 786428, 327680, 8, 327670, 327680, 8, 262134, 65536, 6, 196598, 65536, 6, -10, 65536, 6, -65545, 0, 6, -65544, 0, 6, -65543, 0, 6, -65542, 0, 6, -65541, 0, 6, -65540, 0, 6, -65539, 196608, 8, -131082, 65536, 6, -196618, 65536, 6, -65546, 131072, 8, -131075, 327680, 6, -262147, 327680, 8, -327683, 65536, 6, -393219, 327680, 6, -65538, 0, 6, -65537, 0, 6, -131072, 0, 6, -131071, 393216, 7, -131068, 393216, 7, -131069, 262144, 7)
 
-[node name="Item" parent="." index="3" instance=ExtResource("4_rvx6q")]
-position = Vector2(4560, 499)
-
 [node name="Player" parent="." index="4"]
 position = Vector2(5387, 404)
 metadata/_edit_group_ = true
@@ -57,7 +53,13 @@ metadata/_edit_lock_ = true
 texture = ExtResource("6_rdk75")
 texture_scale = 3.0
 
-[node name="Lights" parent="." index="5"]
+[node name="Area2D" type="Area2D" parent="." index="5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(5751.5, 384.5)
+shape = SubResource("RectangleShape2D_pulri")
+
+[node name="Lights" parent="." index="6"]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
@@ -100,11 +102,5 @@ rotation = 1.5708
 [node name="SimpleLight3" parent="Lights" index="10" instance=ExtResource("5_bydmr")]
 position = Vector2(4005, 2009)
 rotation = 1.5708
-
-[node name="Area2D" type="Area2D" parent="." index="6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(5751.5, 384.5)
-shape = SubResource("RectangleShape2D_pulri")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -2,11 +2,19 @@
 
 [ext_resource type="Script" path="res://scenes/Container/item_container.gd" id="1_dhbyb"]
 
-[node name="ItemContainer" type="StaticBody2D"]
+[node name="ItemContainer" type="StaticBody2D" groups=["Container"]]
+light_mask = 4
+visibility_layer = 11
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_dhbyb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BaseSprite" type="Sprite2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+[node name="LidSprite" type="Sprite2D" parent="."]
 
-[connection signal="child_entered_tree" from="CollisionPolygon2D" to="." method="_on_collision_polygon_2d_child_entered_tree"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="SpawnPositions2" type="Node2D" parent="."]
+
+[connection signal="child_entered_tree" from="CollisionShape2D" to="." method="_on_collision_polygon_2d_child_entered_tree"]

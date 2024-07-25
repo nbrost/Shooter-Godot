@@ -1,4 +1,4 @@
 extends ItemContainerParent
 
-func hit():
-	print("Crate")
+
+# Called when the node enters the scene tree for the first time.

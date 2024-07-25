@@ -19,6 +19,8 @@ format = 2
 [node name="Projectiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
+[node name="Items" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("4_xr61v")]
 position = Vector2(154, 479)
 
