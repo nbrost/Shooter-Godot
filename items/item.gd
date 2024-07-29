@@ -7,21 +7,25 @@ var health: String = 'health'
 var available_types = [laser,laser,laser,laser, grenade, health]
 var type = available_types[randi()%len(available_types)]
 
-func _ready():
-	# Disable the collision shape initially
-	$CollisionShape2D.disabled = true
-	# Set a timer to enable collision shape after a short delay
-	await get_tree().create_timer(1).timeout
-	$CollisionShape2D.disabled = false
+var direction: Vector2
+var distance: int = randi_range(150,250)
 
-func _process(delta):
-	rotation += rotation_speed * delta
+func _ready():
 	if type == laser:
 		$Sprite2D.modulate = Color(0.1,0.1,0.8,1)
 	if type == health:
 		$Sprite2D.modulate = Color(0.1,0.8,0.1,1)
 	if type == grenade:
 		$Sprite2D.modulate = Color(0.8,0.1,0.1,1)
+		
+	var target_position = position + direction * distance
+	print("direction ", direction, " distance ", distance, "target_position ", target_position )
+	var movement_tween = create_tween()
+	movement_tween.tween_property(self, "position", target_position, 0.3)
+
+func _process(delta):
+	rotation += rotation_speed * delta
+
 
 
 func _on_body_entered(body):

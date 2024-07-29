@@ -12,8 +12,9 @@ func _ready():
 
 func _on_container_opened(pos, direction):
 	var item = item_scene.instantiate()
+	item.direction = direction
 	item.position = pos
-	$Items.add_child(item)
+	$Items.call_deferred('add_child', item)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

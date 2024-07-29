@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcb1kojey03uv"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_ukcxp"]
+[ext_resource type="TileSet" uid="uid://cxwwiqbnt62a8" path="res://scenes/levels/house.tres" id="3_6apq0"]
+[ext_resource type="PackedScene" uid="uid://pmklwbw6iuxg" path="res://scenes/UI/UI.tscn" id="4_pilnx"]
+[ext_resource type="PackedScene" uid="uid://bchv5dvig04gm" path="res://scenes/player/player.tscn" id="4_xr61v"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_ukcxp")
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2(100, 0)
+
+[node name="TileMap" type="TileMap" parent="Ground"]
+position = Vector2(-100, 0)
+tile_set = ExtResource("3_6apq0")
+format = 2
+
+[node name="Projectiles" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("4_xr61v")]
+position = Vector2(154, 479)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("4_pilnx")]
+
+[connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
