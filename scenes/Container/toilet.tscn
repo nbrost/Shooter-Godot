@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx1a6yhrnu07n"]
+[gd_scene load_steps=6 format=3 uid="uid://bx1a6yhrnu07n"]
 
 [ext_resource type="PackedScene" uid="uid://cea6x28c3vwoj" path="res://scenes/Container/item_container.tscn" id="1_aef1u"]
 [ext_resource type="Texture2D" uid="uid://ca6mk1i45aupf" path="res://graphics/objects/toilet.png" id="2_fq88a"]
+[ext_resource type="Script" path="res://scenes/Container/toilet.gd" id="2_kdchh"]
 [ext_resource type="Texture2D" uid="uid://datjkreulaonx" path="res://graphics/objects/lid.png" id="4_usarw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7j4mf"]
 radius = 104.389
 
-[node name="ItemContainer" instance=ExtResource("1_aef1u")]
+[node name="Toilet" instance=ExtResource("1_aef1u")]
+position = Vector2(2, 1)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("2_kdchh")
 
 [node name="BaseSprite" parent="." index="0"]
 texture = ExtResource("2_fq88a")
@@ -20,22 +24,4 @@ texture = ExtResource("4_usarw")
 shape = SubResource("CircleShape2D_7j4mf")
 
 [node name="Marker2D" type="Marker2D" parent="SpawnPositions2" index="0"]
-position = Vector2(19, 28)
-
-[node name="Marker2D2" type="Marker2D" parent="SpawnPositions2" index="1"]
-position = Vector2(48, -23)
-
-[node name="Marker2D3" type="Marker2D" parent="SpawnPositions2" index="2"]
-position = Vector2(-44, -30)
-
-[node name="Marker2D4" type="Marker2D" parent="SpawnPositions2" index="3"]
-position = Vector2(-75, 1)
-
-[node name="Marker2D5" type="Marker2D" parent="SpawnPositions2" index="4"]
-position = Vector2(-35, 50)
-
-[node name="Marker2D6" type="Marker2D" parent="SpawnPositions2" index="5"]
-position = Vector2(43, 50)
-
-[node name="Marker2D7" type="Marker2D" parent="SpawnPositions2" index="6"]
-position = Vector2(44, 5)
+position = Vector2(-1, -1)
