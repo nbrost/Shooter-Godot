@@ -103,7 +103,8 @@ sources/1 = SubResource("TileSetAtlasSource_ojbqu")
 script = ExtResource("2_mqhp2")
 
 [node name="Gate" parent="." index="1" instance=ExtResource("2_p11dy")]
-position = Vector2(133, -832)
+z_index = 1
+position = Vector2(496, -752)
 
 [node name="Ground" parent="." index="2"]
 metadata/_edit_lock_ = true
