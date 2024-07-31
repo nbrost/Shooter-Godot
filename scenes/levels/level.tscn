@@ -18,6 +18,8 @@ position = Vector2(-100, 0)
 tile_set = ExtResource("3_6apq0")
 format = 2
 
+[node name="Infestation" type="Node2D" parent="."]
+
 [node name="Projectiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
