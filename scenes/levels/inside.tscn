@@ -238,6 +238,13 @@ texture = ExtResource("18_xtxxk")
 position = Vector2(250, 2557)
 texture = ExtResource("19_wga2o")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Infestation" index="9"]
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infestation/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-3273, 2854, -3273, 2898, -3485, 2854, -3597, 2730, -3613, 2558, -3569, 2554, -3545, 2678, -3493, 2762, -3405, 2810, -3321, 2850)
+
 [node name="Area2D" type="Area2D" parent="." index="5"]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true

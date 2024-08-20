@@ -32,4 +32,6 @@ var health: int = 60:
 			value = 0
 		health = value
 		stat_change.emit()
+		
+var player_position: Vector2
 

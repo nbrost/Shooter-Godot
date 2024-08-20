@@ -17,13 +17,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	
-	# Input
 	var player_direction = (get_global_mouse_position() - position).normalized()
 	var barrel_position = get_barrel_position()
 	var direction = Input.get_vector("left", "right","up","down")
 	velocity = direction * speed
 	move_and_slide()
+	Globals.player_position = global_position
 	
 	# Rotate
 	look_at(get_global_mouse_position())
