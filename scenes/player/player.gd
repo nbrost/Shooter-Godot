@@ -14,6 +14,12 @@ signal grenade(posi, direction)
 func _ready():
 	pass # Replace with function body.
 
+func hit():
+	if Globals.player_vulnerable:
+		Globals.player_vulnerable = false
+		print("player hit and " + str(Globals.player_vulnerable))
+		Globals.health -= 10
+		$InvulnerableTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -64,3 +70,8 @@ func add_item(type: String) -> void:
 		Globals.health += 10
 		
 	
+
+
+func _on_invulnerable_timer_timeout() -> void:
+	Globals.player_vulnerable = true
+	print("player now vulnerable")

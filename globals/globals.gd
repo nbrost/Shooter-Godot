@@ -22,6 +22,8 @@ var grenade_amount: int = 5:
 			value = 0
 		grenade_amount = value
 		stat_change.emit()
+		
+var player_vulnerable: bool = true
 var health: int = 60:
 	get:
 		return health
@@ -34,4 +36,3 @@ var health: int = 60:
 		stat_change.emit()
 		
 var player_position: Vector2
-

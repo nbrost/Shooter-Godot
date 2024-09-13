@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 var player_nearby: bool = false
 var can_laser: bool = true
+var can_take_damage = true
 var left_laser: bool = true 
+var health: int = 300
 
 signal laser(posi, direction)
 
@@ -15,9 +17,18 @@ func _process(_delta):
 			dir = (Globals.player_position - pos).normalized()
 			laser.emit(pos, dir)
 			can_laser = false
-			$LaserCooldown.start()
+			$Timers/LaserCooldown.start()
 
-
+func hit():
+	if can_take_damage:
+		$Sprite2D.material.set_shader_parameter("progress", 1)
+		can_take_damage = false
+		$Timers/InvulnerableTimer.start()
+		health -= 10
+		print("remaining health " + str(health))
+		if health <= 0:
+			$".".queue_free()
+	
 func _on_attach_area_body_entered(_body):
 	player_nearby = true
 
@@ -33,5 +44,7 @@ func get_barrel_position():
 
 func _on_laser_cooldown_timeout():
 	can_laser = true
-	
 
+func _on_invulnerable_timer_timeout() -> void:
+	can_take_damage = true
+	$Sprite2D.material.set_shader_parameter("progress", 0)
