@@ -4,7 +4,7 @@ var player_nearby: bool = false
 var can_laser: bool = true
 var can_take_damage = true
 var left_laser: bool = true 
-var health: int = 300
+var health: int = 30
 
 signal laser(posi, direction)
 
