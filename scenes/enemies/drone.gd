@@ -1,16 +1,32 @@
 extends CharacterBody2D
 
+var active: bool = false
+var vulnerable: bool = true
+var speed: int = 400
+var health: int = 50
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Explosion.visible = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var direction = Vector2.RIGHT
-	velocity = direction * 100
-	move_and_slide()
+	var direction = (Globals.player_position - position).normalized()
+	if active:
+		look_at(Globals.player_position)
+		velocity = direction * speed
+		move_and_slide()
  
 func hit():
-	print("I got hit")
+	if vulnerable:
+		vulnerable = false
+		$HitTimer.start()
+		health -= 10
+	if health <= 0:
+		$AnimationPlayer.play("explosion")
+
+
+func _on_notice_area_body_entered(_body):
+	active = true
+
+
+func _on_hit_timer_timeout():
+	vulnerable = true
