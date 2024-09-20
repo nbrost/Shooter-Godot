@@ -29,7 +29,6 @@ func hit():
 			$".".queue_free()
 
 func _on_invulnerable_timer_timeout() -> void:
-	
 	can_take_damage = true
 	$AnimatedSprite2D.material.set_shader_parameter("progress", 0)
 
