@@ -15,8 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dytoyjcm5endy" path="res://scenes/objects/light_fan_animation.tscn" id="11_a35os"]
 [ext_resource type="PackedScene" uid="uid://xmi0lmfp0m4w" path="res://scenes/objects/steam_vent.tscn" id="13_17gjm"]
 [ext_resource type="PackedScene" uid="uid://bgyijtgj7xsb2" path="res://scenes/objects/wall_lamp.tscn" id="14_01b3g"]
-[ext_resource type="PackedScene" uid="uid://7w3sknord3lk" path="res://scenes/enemies/bug.tscn" id="17_1xfkl"]
-[ext_resource type="PackedScene" uid="uid://xl5rh24r1xgw" path="res://scenes/enemies/drone.tscn" id="17_vvil7"]
+[ext_resource type="PackedScene" uid="uid://w7twyk76ygc0" path="res://scenes/enemies/car.tscn" id="16_whggq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_55w4i"]
 resource_name = "walls"
@@ -101,6 +100,12 @@ physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_55w4i")
 sources/1 = SubResource("TileSetAtlasSource_ojbqu")
 
+[sub_resource type="Curve2D" id="Curve2D_2jqst"]
+_data = {
+"points": PackedVector2Array(-46.266, -795.178, 46.266, 795.178, 2737, 5123, 939.742, -12.6992, -939.742, 12.6992, 467, 7730, 88.8945, 888.945, -88.8945, -888.945, -5978, 5846, -1473.11, 1625.5, 1473.11, -1625.5, -5143, -800, -634.961, -863.546, 634.961, 863.546, 4450, -827, 165.09, -342.879, -165.09, 342.879, 4086, 3088, -177.789, -939.742, 177.789, 939.742, 2737, 5123)
+}
+point_count = 7
+
 [node name="Outside" instance=ExtResource("1_vlxgu")]
 script = ExtResource("2_mqhp2")
 
@@ -175,14 +180,15 @@ metadata/_edit_lock_ = true
 
 [node name="Enemies" type="Node2D" parent="." index="9"]
 
-[node name="Bug" parent="Enemies" index="0" instance=ExtResource("17_1xfkl")]
-position = Vector2(366, 1280)
-
-[node name="drone" parent="Enemies" index="1" instance=ExtResource("17_vvil7")]
-position = Vector2(1154, 509)
-
 [node name="Lights" parent="." index="10"]
 metadata/_edit_lock_ = true
+
+[node name="CarPath" type="Path2D" parent="." index="12"]
+curve = SubResource("Curve2D_2jqst")
+
+[node name="Car" parent="CarPath" index="0" instance=ExtResource("16_whggq")]
+position = Vector2(2737, 5123)
+rotation = 1.51268
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="body_entered" from="Ground/House" to="." method="_on_house_body_entered"]
