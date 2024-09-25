@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://w7twyk76ygc0"]
+[gd_scene load_steps=8 format=3 uid="uid://w7twyk76ygc0"]
 
 [ext_resource type="Script" path="res://scenes/enemies/car.gd" id="1_fraw3"]
 [ext_resource type="Texture2D" uid="uid://bewv5pd18uhg1" path="res://graphics/car/main.png" id="1_sfo7t"]
 [ext_resource type="Texture2D" uid="uid://bj377pir6hqqq" path="res://graphics/car/turret.png" id="3_no6ev"]
+[ext_resource type="Texture2D" uid="uid://wctkcuu5m2cf" path="res://graphics/explosions/gun.png" id="3_rq5xq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmj1d"]
 radius = 894.002
@@ -78,6 +79,20 @@ visible = false
 shape = SubResource("CircleShape2D_gmj1d")
 
 [node name="Turret" type="Node2D" parent="."]
+
+[node name="LeftFire" type="Sprite2D" parent="Turret"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(191, 31)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_rq5xq")
+
+[node name="RightFire" type="Sprite2D" parent="Turret"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(190, -29)
+rotation = 1.5708
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_rq5xq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Turret"]
 rotation = 1.5708
